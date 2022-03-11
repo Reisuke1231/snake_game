@@ -1,4 +1,3 @@
-import time
 from turtle import Turtle
 
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
@@ -55,3 +54,11 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(500, 500)
+        self.segments.clear()
+        self.color_index = 0
+        self.create_snake()
+        self.head = self.segments[0]
